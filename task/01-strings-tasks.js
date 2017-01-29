@@ -21,9 +21,8 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1, value2) {
-	var str=value1+value2;
-	return str;
+function concatenateStrings(value1, value2) {	
+	return value1.concat(value2);
     throw new Error('Not implemented');
 }
 
@@ -40,6 +39,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
+	return value.length;	
     throw new Error('Not implemented');
 }
 
