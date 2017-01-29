@@ -22,6 +22,8 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
+	var str=value1+value2;
+	return str;
     throw new Error('Not implemented');
 }
 
