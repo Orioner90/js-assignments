@@ -173,13 +173,8 @@ function convertToUpperCase(str) {
  *   'angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com' => ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) { 
-throw new Error('Not implemented');
-var arrayString=(str).split(';');
-var s=[arrayString.join("', '")];
-return s;
- 
-    
+function extractEmails(str) {
+    return str.split(';');
 }
 
 /**
