@@ -145,7 +145,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+return str.substring(str.indexOf('<')+1,str.lastIndexOf(">"));     
 }
 
 
@@ -173,8 +173,13 @@ function convertToUpperCase(str) {
  *   'angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com' => ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) {
-    throw new Error('Not implemented');
+function extractEmails(str) { 
+throw new Error('Not implemented');
+var arrayString=(str).split(';');
+var s=[arrayString.join("', '")];
+return s;
+ 
+    
 }
 
 /**
@@ -237,8 +242,9 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(value) {
-    throw new Error('Not implemented');
+function isString(value) {	
+if(typeof value=="object"&& value !=null) return typeof value.valueOf()=="string";
+else return typeof value=="string";   
 }
 
 
