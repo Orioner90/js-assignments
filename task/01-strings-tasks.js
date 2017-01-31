@@ -201,7 +201,20 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+	var leftAngleH=9484;var leftAngleL=9492;
+	var rigthAngleH=9488; var rigthAngleL=9496;
+	var horizontalLine=9472; var verticalLine=9474;
+	var str="";
+	var i;
+	for (i = 0; i < height; i++) {
+		if(i==0){
+			str=String.fromCharCode(leftAngleH)+String.fromCharCode(horizontalLine).repeat(width-2)+String.fromCharCode(rigthAngleH)+"\n";}
+		if(i==height-1){
+			str+=String.fromCharCode(leftAngleL)+String.fromCharCode(horizontalLine).repeat(width-2)+String.fromCharCode(rigthAngleL)+"\n";}	
+    if(i!=0&&i!=height-1){
+    	str+=String.fromCharCode(verticalLine)+" ".repeat(width-2)+String.fromCharCode(verticalLine)+"\n";}
+	}
+	return str;    
 }
 
 
@@ -221,7 +234,17 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+	var s="";
+	for(var i=0;i<str.length;i++)
+	{
+		var st=str.charAt(i);
+		if(str.charCodeAt(i)>64&&str.charCodeAt(i)<78) st=String.fromCharCode(str.charCodeAt(i)+13);
+		if(str.charCodeAt(i)>77&&str.charCodeAt(i)<91) st=String.fromCharCode(str.charCodeAt(i)-13);		
+		if(str.charCodeAt(i)>96&&str.charCodeAt(i)<110) st=String.fromCharCode(str.charCodeAt(i)+13);
+		if(str.charCodeAt(i)>109&&str.charCodeAt(i)<123) st=String.fromCharCode(str.charCodeAt(i)-13);
+		s+=st;		
+	}	
+	return s;   
 }
 
 /**
