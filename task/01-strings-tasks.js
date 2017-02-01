@@ -201,18 +201,11 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-	var leftAngleH=9484;var leftAngleL=9492;
-	var rigthAngleH=9488; var rigthAngleL=9496;
-	var horizontalLine=9472; var verticalLine=9474;
 	var str="";
-	var i;
-	for (i = 0; i < height; i++) {
-		if(i==0){
-			str=String.fromCharCode(leftAngleH)+String.fromCharCode(horizontalLine).repeat(width-2)+String.fromCharCode(rigthAngleH)+"\n";}
-		if(i==height-1){
-			str+=String.fromCharCode(leftAngleL)+String.fromCharCode(horizontalLine).repeat(width-2)+String.fromCharCode(rigthAngleL)+"\n";}	
-    if(i!=0&&i!=height-1){
-    	str+=String.fromCharCode(verticalLine)+" ".repeat(width-2)+String.fromCharCode(verticalLine)+"\n";}
+	for (var i = 0; i < height; i++) {
+		if(i==0){				str+="┌"+"─".repeat(width-2)+"┐"+"\n";}
+		if(i!=0&&i!=height-1){	str+="│"+" ".repeat(width-2)+"│"+"\n";}
+		if(i==height-1){		str+="└"+"─".repeat(width-2)+"┘"+"\n";}		
 	}
 	return str;    
 }
@@ -291,7 +284,23 @@ else return typeof value=="string";
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+var num;
+if(value.charAt(value.length-1)=="♣")num=0;
+if(value.charAt(value.length-1)=="♦")num=13;
+if(value.charAt(value.length-1)=="♥")num=26;
+if(value.charAt(value.length-1)=="♠")num=39;
+if(value.length<3)
+{
+	if(value.charCodeAt(0)>49 && value.charCodeAt(0)<58) {num+=Number(value.charAt(0)-1);}
+    else
+    {
+        if(value.charCodeAt(0)==75) num+=12;
+        if(value.charCodeAt(0)==81) num+=11;
+        if(value.charCodeAt(0)==74) num+=10;
+    }
+}
+else num+=9;
+return num;   
 }
 
 
