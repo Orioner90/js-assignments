@@ -22,14 +22,8 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {	
-	if(Date.parse(value)==true)
-	{
-		return new Date(1970,0,1,0,0,0,0+Date(Date.UTC(value)));
-	}
-	else
-	{		
-		return new Date(value);
-	}	
+	return Date.parse(value);
+	
 }
 
 /**
