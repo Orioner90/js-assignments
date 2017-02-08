@@ -24,7 +24,7 @@
 function parseDataFromRfc2822(value) {	
 	if(Date.parse(value)==true)
 	{
-		return new Date(1970,0,1,0,0,0,0+Date.parse(value))
+		return new Date(1970,0,1,0,0,0,0+Date(Date.UTC(value)));
 	}
 	else
 	{		
