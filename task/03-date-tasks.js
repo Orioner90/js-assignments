@@ -26,9 +26,7 @@ function parseDataFromRfc2822(value) {
 	var IPOdate=new Date();
 	if(typeof +value=="number"){IPOdate=new Date(value);}
 	else{
-	return Date.UTC(value);}
-	
-throw new Error('Not implemented');		
+	return Date.UTC(value);}	
 }
 
 /**
