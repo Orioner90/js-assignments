@@ -23,8 +23,9 @@
  */
 function parseDataFromRfc2822(value) {	
 var today = new Date(value);	
-	return new Date(1970,1,1,0,0,0,0+Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(), today.getUTCHours(), today.getUTCMinutes(), today.getUTCSeconds(), today.getUTCMilliseconds()));
-}
+	return new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(), today.getUTCHours(), today.getUTCMinutes(), today.getUTCSeconds(), today.getUTCMilliseconds()));
+	
+	}
 
 /**
  * Parses an ISO 8601 string date representation into date value
