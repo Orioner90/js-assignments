@@ -22,9 +22,8 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-		console.log(new Date(1995, 11, 17, 3, 24, 0).toString());
-		console.log(new Date(895370400000).toString());
-		console.log(new Date('Sun, 17 May 1998 03:00:00 GMT+01').toString());
+		console.log(value);
+		console.log(Date.parse('Sun, 17 May 1998 03:00:00 GMT+01'));
 		return new Date(value);
 	}
 
