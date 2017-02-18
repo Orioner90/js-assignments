@@ -22,9 +22,15 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {	
-	console.log(Date.parse('Sun, 17 May 1998 03:00:00 GMT+01'));
-	console.log(Date.parse('Sun, 17 May 1998 03:00:00'));
-	return Date.parse(value);
+	var timezone = new Date().getTimezoneOffset();
+	if (timezone != -180){
+		var dateToRetuurn = new Date(value);
+		//console.log(dateToRetuurn.getUTCHours);
+		dateToRetuurn.setUTCHours(dateToRetuurn.getUTCHours() - ((timezone + 180 )/ 60));
+		return dateToRetuurn;
+	} else {
+			return new Date(value);
+		}
 	}
 
 /**
