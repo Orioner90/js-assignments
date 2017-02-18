@@ -21,16 +21,10 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
-function parseDataFromRfc2822(value) {	
-	var timezone = new Date().getTimezoneOffset();
-	if (timezone != -180){
-		var dateToRetuurn = new Date(value);
-		//console.log(dateToRetuurn.getUTCHours);
-		dateToRetuurn.setUTCHours(dateToRetuurn.getUTCHours() - ((timezone + 180 )/ 60));
-		return dateToRetuurn;
-	} else {
-			return new Date(value);
-		}
+function parseDataFromRfc2822(value) {
+		console.log(new Date(1995, 11, 17, 3, 24, 0).toString());
+		console.log(new Date(895370400000).toString());
+		return new Date(value);
 	}
 
 /**
