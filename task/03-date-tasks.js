@@ -23,8 +23,10 @@
  */
 function parseDataFromRfc2822(value) {
 		console.log(value);
-		console.log(new Date(895370400000).toString());
-		return new Date(value);
+		var date = new Date(value);
+		var UTCseconds = Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate(),date.getUTCHours(),date.getUTCMinutes(),date.getUTCSeconds(),date.getUTCMilliseconds());
+	console.log(new Date(UTCseconds).toString());
+		return UTCseconds;
 	}
 
 /**
